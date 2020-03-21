@@ -21,11 +21,32 @@
 {#if $data}
     <details open={open}>
         <summary>
-            <svg class="icon-home">
+            <svg class="icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
             <span>{$data[`button_label`]}</span>
+            <svg class="icon-close">
+                <use xlink:href="#icon-close"></use>
+            </svg>
         </summary>
+        <table class="numbers">
+            <tr>
+                <td>
+                    <b>{$data[`number_infected`]}</b>
+                </td>
+                <td>
+                    {$data[`number_infected_label`]}<br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>{$data[`number_death`]}</b>
+                </td>
+                <td>
+                    {$data[`number_death_label`]}
+                </td>
+            </tr>
+        </table>
         {#each Array(postLimit) as _, i}
             <a href="{$data[`post_${i+1}_url`]}"
                target="_blank"
@@ -36,7 +57,7 @@
                     <header>
                         <h2>
                             <span class="verified">
-                                <svg class="icon-home">
+                                <svg class="icon-logo">
                                     <use xlink:href="#icon-logo"></use>
                                 </svg>
                                 <span class="verified__label">
@@ -74,8 +95,13 @@
     <defs>
         <symbol id="icon-logo" viewBox="0 0 61 63">
             <style>
-                .shape {fill: var(--color-icon-bg)}
-                .checkmark {stroke: var(--color-icon-check)}
+                .shape {
+                    fill: var(--color-icon-bg)
+                }
+
+                .checkmark {
+                    stroke: var(--color-icon-check)
+                }
             </style>
             <g transform="translate(-12 -11)" fill="none" fill-rule="evenodd">
                 <path class="shape"
@@ -83,6 +109,13 @@
                       fill="#3753FF"/>
                 <path class="checkmark" stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
                       d="M35 42.5L40.4964365 48 52.5981445 36"/>
+            </g>
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 17 16">
+            <g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-width="3"
+               transform="matrix(.70710678 .70710678 -.70710678 .70710678 8.146491 -5.081369)">
+                <path d="m9.5 0v17.823"/>
+                <path d="m9.5 0v17.823" transform="matrix(0 -1 1 0 .589 18.411)"/>
             </g>
         </symbol>
     </defs>

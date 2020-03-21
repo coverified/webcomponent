@@ -53,18 +53,20 @@ details {
             margin-right: calc(-1 * var(--open-padding));
             margin-left: calc(-1 * var(--open-padding));
 
-            svg {
+            .icon-logo {
                 --color-icon-bg: var(--color-text-on-primary);
                 --color-icon-check: var(--color-primary);
 
                 width: 2.25rem;
                 height: 2.25rem;
-                margin-right: .5em;
+            }
+
+            .icon-close {
+                display: inline-block;
             }
 
             span {
                 display: inline;
-                font-weight: 700;
             }
         }
     }
@@ -76,17 +78,51 @@ summary {
     flex-direction: row;
     align-items: center;
 
-    svg {
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    .icon-logo {
         width: 3.5rem;
         height: 3.5rem;
+        margin-right: auto;
+    }
+
+    .icon-close {
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: auto;
     }
 
     span {
         display: none;
+        font-weight: 700;
+        margin-left: .5em;
+        margin-right: .5em;
+    }
+}
+
+.numbers {
+    padding: var(--open-padding);
+    padding-left: 1rem;
+    position: relative;
+    margin: 0;
+    margin-top: var(--open-padding);
+
+    b {
+        margin-right: .75em;
     }
 
-    &::-webkit-details-marker {
-        display: none;
+    &:before {
+        content: '';
+        display: block;
+        width: .275em;
+        height: 80%;
+        position: absolute;
+        left: .25rem;
+        top: 10%;
+        background: linear-gradient(to bottom, #000000 33%, #de0000 33.001%, #de0000 66%, #ffcf00 66.001%);
     }
 }
 
@@ -98,6 +134,7 @@ summary {
     margin-top: var(--open-padding);
     color: var(--color-text);
     position: relative;
+    border-top: 1px solid var(--color-border);
 
     &:after {
         content: '↗';
@@ -129,14 +166,11 @@ summary {
         }
     }
 
-    + .article {
-        border-top: 1px solid var(--color-border);
-    }
-
     h2 {
         margin-top: 0;
         font-size: 1.25rem;
         padding-right: 1em;
+        font-weight: 700;
     }
 
 
@@ -146,7 +180,7 @@ summary {
     position: relative;
     z-index: 1;
 
-    svg {
+    .icon-logo {
         width: 1.25em;
         height: 1.25em;
         margin-bottom: -.25em;
