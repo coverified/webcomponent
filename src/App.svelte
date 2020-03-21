@@ -11,8 +11,24 @@
     export let open = false;
     export let debug = false;
 
+    function toggleOpen() {
+        open = !open;
+    }
+
     onMount(async () => {
         data.load(dataKeyFromConfig(area, language));
+        document.addEventListener('click', e => {
+            const widgets = document.querySelectorAll('web-info-widget');
+
+            [...widgets].forEach(widget => {
+                console.log(widget.contains(e.target));
+                if(!widget.contains(e.target)) {
+                    open = false;
+                }
+            });
+
+
+        });
     });
 </script>
 
@@ -20,7 +36,7 @@
 
 {#if $data}
     <details open={open}>
-        <summary>
+        <summary on:click|preventDefault={toggleOpen}>
             <svg class="icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
@@ -29,33 +45,33 @@
                 <use xlink:href="#icon-close"></use>
             </svg>
         </summary>
-        <table class="numbers">
-            <tr>
-                <td>
-                    <b>{$data[`number_infected`]}</b>
-                </td>
-                <td>
-                    {$data[`number_infected_label`]}<br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>{$data[`number_death`]}</b>
-                </td>
-                <td>
-                    {$data[`number_death_label`]}
-                </td>
-            </tr>
-        </table>
-        {#each Array(postLimit) as _, i}
-            <a href="{$data[`post_${i+1}_url`]}"
-               target="_blank"
-               class="article"
-               title="{$data[`post_${i+1}_headline`]}"
-            >
-                <article>
-                    <header>
-                        <h2>
+        <section>
+            <table class="numbers">
+                <tr>
+                    <td>
+                        <b>{$data[`number_infected`]}</b>
+                    </td>
+                    <td>
+                        {$data[`number_infected_label`]}<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>{$data[`number_death`]}</b>
+                    </td>
+                    <td>
+                        {$data[`number_death_label`]}
+                    </td>
+                </tr>
+            </table>
+            {#each Array(postLimit) as _, i}
+                <a href="{$data[`post_${i+1}_url`]}"
+                   target="_blank"
+                   class="article"
+                   title="{$data[`post_${i+1}_headline`]}">
+                    <article>
+                        <header>
+                            <h2>
                             <span class="verified">
                                 <svg class="icon-logo">
                                     <use xlink:href="#icon-logo"></use>
@@ -64,20 +80,21 @@
                                     {$data[`verified_label`]}
                                 </span>
                             </span>
-                            {$data[`post_${i+1}_headline`]}
-                        </h2>
-                    </header>
-                    <main>
-                        <p>{$data[`post_${i+1}_text`]}</p>
-                    </main>
-                    <footer>
+                                {$data[`post_${i+1}_headline`]}
+                            </h2>
+                        </header>
+                        <main>
+                            <p>{$data[`post_${i+1}_text`]}</p>
+                        </main>
+                        <footer>
                         <span class="btn">
                             {$data[`link_label`]}
                         </span>
-                    </footer>
-                </article>
-            </a>
-        {/each}
+                        </footer>
+                    </article>
+                </a>
+            {/each}
+        </section>
     </details>
 {/if}
 {#if debug === true || debug === 'true'}
