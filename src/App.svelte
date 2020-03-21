@@ -18,7 +18,7 @@
 <style src="App.scss"></style>
 
 {#if $data}
-    <details>
+    <details open={true}>
         <summary>
             <svg class="icon-home">
                 <use xlink:href="#icon-logo"></use>
@@ -26,22 +26,30 @@
             <span>{$data[`button_label`]}</span>
         </summary>
         {#each Array(postLimit) as _, i}
-            <article>
-                <header>
-                    <h2>{$data[`post_${i+1}_headline`]}</h2>
-                </header>
-                <main>
-                    <p>{$data[`post_${i+1}_text`]}</p>
-                </main>
-                <footer>
-                    <a href="{$data[`post_${i+1}_url`]}"
-                       target="_blank"
-                       class="btn"
-                       title="{$data[`post_${i+1}_headline`]}">
-                        {$data[`link_label`]}
-                    </a>
-                </footer>
-            </article>
+            <a href="{$data[`post_${i+1}_url`]}"
+               target="_blank"
+               class="article"
+               title="{$data[`post_${i+1}_headline`]}"
+            >
+                <article>
+                    <header>
+                        <h2>
+                            <svg class="icon-home">
+                                <use xlink:href="#icon-logo"></use>
+                            </svg>
+                            {$data[`post_${i+1}_headline`]}
+                        </h2>
+                    </header>
+                    <main>
+                        <p>{$data[`post_${i+1}_text`]}</p>
+                    </main>
+                    <footer>
+                        <span class="btn">
+                            {$data[`link_label`]}
+                        </span>
+                    </footer>
+                </article>
+            </a>
         {/each}
     </details>
 {/if}
