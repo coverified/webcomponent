@@ -21,13 +21,10 @@
             const widgets = document.querySelectorAll('web-info-widget');
 
             [...widgets].forEach(widget => {
-                console.log(widget.contains(e.target));
                 if(!widget.contains(e.target)) {
                     open = false;
                 }
             });
-
-
         });
     });
 </script>
