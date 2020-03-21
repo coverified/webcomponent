@@ -8,6 +8,7 @@
     export let area = 'GER';
     export let language = 'de';
     export let postLimit = 3;
+    export let open = false;
     export let debug = false;
 
     onMount(async () => {
@@ -18,7 +19,7 @@
 <style src="App.scss"></style>
 
 {#if $data}
-    <details open={true}>
+    <details open={open}>
         <summary>
             <svg class="icon-home">
                 <use xlink:href="#icon-logo"></use>
@@ -34,9 +35,14 @@
                 <article>
                     <header>
                         <h2>
-                            <svg class="icon-home">
-                                <use xlink:href="#icon-logo"></use>
-                            </svg>
+                            <span class="verified">
+                                <svg class="icon-home">
+                                    <use xlink:href="#icon-logo"></use>
+                                </svg>
+                                <span class="verified__label">
+                                    {$data[`verified_label`]}
+                                </span>
+                            </span>
                             {$data[`post_${i+1}_headline`]}
                         </h2>
                     </header>
