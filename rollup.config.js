@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import autoPreprocess from 'svelte-preprocess';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -20,6 +21,15 @@ export default {
 			customElement: true,
 			// enable run-time checks when not in production
 			dev: !production,
+			// pre-process styles
+			preprocess: autoPreprocess({
+				scss: true,
+				postcss: {
+					plugins: [
+						require('autoprefixer'),
+					],
+				},
+			}),
 		}),
 
 		// If you have external dependencies installed from

@@ -15,19 +15,30 @@
     });
 </script>
 
-<style>
-</style>
+<style src="App.scss"></style>
 
 {#if $data}
-    <details>
-        <summary>{$data[`button_label`]}</summary>
+    <details open="true">
+        <summary>
+            <span>{$data[`button_label`]}</span>
+        </summary>
         {#each Array(postLimit) as _, i}
-            <h2>{$data[`post_${i+1}_headline`]}</h2>
-            <p>{$data[`post_${i+1}_text`]}</p>
-            <a href="{$data[`post_${i+1}_url`]}"
-               title="{$data[`post_${i+1}_headline`]}">
-                {$data[`link_label`]}
-            </a>
+            <article>
+                <header>
+                    <h2>{$data[`post_${i+1}_headline`]}</h2>
+                </header>
+                <main>
+                    <p>{$data[`post_${i+1}_text`]}</p>
+                </main>
+                <footer>
+                    <a href="{$data[`post_${i+1}_url`]}"
+                       target="_blank"
+                       class="btn"
+                       title="{$data[`post_${i+1}_headline`]}">
+                        {$data[`link_label`]}
+                    </a>
+                </footer>
+            </article>
         {/each}
     </details>
 {/if}
