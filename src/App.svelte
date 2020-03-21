@@ -18,7 +18,7 @@
 <style src="App.scss"></style>
 
 {#if $data}
-    <details open="true">
+    <details>
         <summary>
             <svg class="icon-home">
                 <use xlink:href="#icon-logo"></use>
