@@ -1,3 +1,5 @@
+<!--TODO: refactor/rewrite readme with infos that actually apply to the project-->
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
