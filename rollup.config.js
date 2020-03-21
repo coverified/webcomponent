@@ -7,22 +7,19 @@ import { terser } from 'rollup-plugin-terser';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
+	input: 'src/web-info-widget.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'public/build/web-info-widget.js',
 	},
 	plugins: [
 		svelte({
+			// compile as custom element
+			customElement: true,
 			// enable run-time checks when not in production
 			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file - better for performance
-			css: css => {
-				css.write('public/build/bundle.css');
-			}
 		}),
 
 		// If you have external dependencies installed from
@@ -32,7 +29,7 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ['svelte'],
 		}),
 		commonjs(),
 
@@ -46,7 +43,7 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
 	],
 	watch: {
 		clearScreen: false
@@ -63,7 +60,7 @@ function serve() {
 
 				require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
 					stdio: ['ignore', 'inherit', 'inherit'],
-					shell: true
+					shell: true,
 				});
 			}
 		}
