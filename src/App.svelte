@@ -7,6 +7,7 @@
 
     export let area = 'GER';
     export let language = 'de';
+    export let postLimit = 3;
     export let debug = false;
 
     onMount(async () => {
@@ -18,9 +19,17 @@
 </style>
 
 {#if $data}
-<details>
-    <summary>{$data['button_label']}</summary>
-</details>
+    <details>
+        <summary>{$data[`button_label`]}</summary>
+        {#each Array(postLimit) as _, i}
+            <h2>{$data[`post_${i+1}_headline`]}</h2>
+            <p>{$data[`post_${i+1}_text`]}</p>
+            <a href="{$data[`post_${i+1}_url`]}"
+               title="{$data[`post_${i+1}_headline`]}">
+                {$data[`link_label`]}
+            </a>
+        {/each}
+    </details>
 {/if}
 {#if debug === true || debug === 'true'}
     <h3>Settings:</h3>
