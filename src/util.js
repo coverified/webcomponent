@@ -12,7 +12,6 @@ export const setJsonFromUrl = (url, set, subfield) => {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             set(idValueArrayToObject(data[subfield]));
         });
 };
