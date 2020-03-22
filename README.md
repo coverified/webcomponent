@@ -36,6 +36,13 @@ web-info-widget {
 }
 ```
 
+Adjust the primary color via CSS custom properties
+```css
+web-info-widget {
+    --color-primary: #bf1e3a;
+}
+```
+
 ## Help Developing and fight the virus
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
