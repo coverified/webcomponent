@@ -178,14 +178,47 @@ summary {
         }
     }
 
+    header {
+        margin-bottom: .5rem;
+    }
+
     h2 {
         margin-top: 0;
         font-size: 1.25rem;
         padding-right: 1em;
         font-weight: 700;
+        margin-bottom: 0;
     }
 
+    small {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        color: #969696;
+    }
 
+    .source {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .timestamp {
+        white-space: nowrap;
+        margin-left: 1.5em;
+        flex-grow: 1;
+        width: 100%;
+
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
+            margin-bottom: -.225em;
+        }
+    }
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
 }
 
 .verified {

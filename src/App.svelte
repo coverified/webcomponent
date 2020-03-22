@@ -3,7 +3,7 @@
 <script>
     import {onMount} from 'svelte';
     import {config, data} from './stores.js';
-    import {dataKeyFromConfig} from './util';
+    import {dataKeyFromConfig, getElapsedTime} from './util';
 
     export let area = 'GER';
     export let language = 'de';
@@ -34,11 +34,11 @@
 {#if $data}
     <details open={open}>
         <summary on:click|preventDefault={toggleOpen}>
-            <svg class="icon-logo">
+            <svg class="icon icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
             <span>{$data[`button_label`]}</span>
-            <svg class="icon-close">
+            <svg class="icon icon-close">
                 <use xlink:href="#icon-close"></use>
             </svg>
         </summary>
@@ -71,7 +71,7 @@
                         <header>
                             <h2>
                             <span class="verified">
-                                <svg class="icon-logo">
+                                <svg class="icon icon-logo">
                                     <use xlink:href="#icon-logo"></use>
                                 </svg>
                                 <span class="verified__label">
@@ -80,6 +80,17 @@
                             </span>
                                 {$data[`post_${i+1}_headline`]}
                             </h2>
+                            <small>
+                                <span class="source">
+                                    {$data[`post_${i+1}_source`]}
+                                </span>
+                                <span class="timestamp">
+                                    <svg class="icon icon-clock">
+                                        <use xlink:href="#icon-clock"></use>
+                                    </svg>
+                                    {getElapsedTime($data[`post_${i+1}_timestamp`])}
+                                </span>
+                            </small>
                         </header>
                         <main>
                             <p>{$data[`post_${i+1}_text`]}</p>
@@ -131,6 +142,12 @@
                transform="matrix(.70710678 .70710678 -.70710678 .70710678 8.146491 -5.081369)">
                 <path d="m9.5 0v17.823"/>
                 <path d="m9.5 0v17.823" transform="matrix(0 -1 1 0 .589 18.411)"/>
+            </g>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 17 16">
+            <g fill="none" fill-rule="evenodd">
+                <circle cx="7.5" cy="7.5" fill="#9c9c9c" r="7.5"/>
+                <path d="m4 7.634h4.088l3.053-3.134" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.395"/>
             </g>
         </symbol>
     </defs>
