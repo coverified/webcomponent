@@ -65,10 +65,11 @@ details {
             background-color: var(--color-primary);
             color: var(--color-text-on-primary);
             border-radius: .5rem;
-            padding: .625rem 1rem;
+            padding: .625rem 3.333rem;
             margin-top: calc(-1 * var(--open-padding));
             margin-right: calc(-1 * var(--open-padding));
             margin-left: calc(-1 * var(--open-padding));
+            position: relative;
 
             .icon-logo {
                 --color-icon-bg: var(--color-text-on-primary);
@@ -76,16 +77,20 @@ details {
 
                 width: 1.875rem;
                 height: 1.875rem;
+                position: absolute;
+                left: .75rem;
+                top: .575rem;
             }
 
             .icon-close {
                 display: inline-block;
+                position: absolute;
+                right: 1rem;
+                top: .95rem;
             }
 
             span {
                 display: block;
-                flex-basis: 50%;
-                max-width: 150px;
             }
         }
     }
@@ -121,8 +126,8 @@ summary {
 
     span {
         display: none;
-        margin-left: .5em;
-        margin-right: .5em;
+        text-align: center;
+        width: 100%;
     }
 }
 
