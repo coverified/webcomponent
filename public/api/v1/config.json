@@ -1,0 +1,16 @@
+{
+  "config": [
+    {
+      "id": "default_region",
+      "value": "GER"
+    },
+    {
+      "id": "default_language",
+      "value": "de"
+    },
+    {
+      "id": "default_mode",
+      "value": "light"
+    }
+  ]
+}

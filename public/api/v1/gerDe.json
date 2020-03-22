@@ -1,0 +1,173 @@
+{
+  "gerDe": [
+    {
+      "id": "button_label",
+      "value": "CoVerified"
+    },
+    {
+      "id": "verified_label",
+      "value": "Verifizierte Quelle"
+    },
+    {
+      "id": "link_label",
+      "value": "Anzeigen"
+    },
+    {
+      "id": "button_landing_label",
+      "value": "CoronaInfo"
+    },
+    {},
+    {
+      "id": "post_1_headline",
+      "value": "Ausgangssperre in Bayern!"
+    },
+    {
+      "id": "post_1_text",
+      "value": "Der bayerische Ministerpräsident Söder verhängt ab Freitag 0 Uhr eine Ausgangssperre  über den Freitstaat."
+    },
+    {
+      "id": "post_1_source",
+      "value": "bundesregierung.de"
+    },
+    {
+      "id": "post_1_timestamp",
+      "value": "2020-03-22T00:52:15.499Z"
+    },
+    {
+      "id": "post_1_url",
+      "value": "https://www.tagesschau.de/inland/soeder-363.html"
+    },
+    {
+      "id": "post_2_headline",
+      "value": "Weltweit mehr als 280.000 Menschen infiziert"
+    },
+    {
+      "id": "post_2_text",
+      "value": "Hier findet ihr eine Übersicht über die weltweiten infizierten Personen. "
+    },
+    {
+      "id": "post_2_source",
+      "value": "coronawiki.org"
+    },
+    {
+      "id": "post_2_timestamp",
+      "value": "2020-03-21T14:02:45.499Z"
+    },
+    {
+      "id": "post_2_url",
+      "value": "https://coronawiki.org/index"
+    },
+    {
+      "id": "post_3_headline",
+      "value": "Vorübergehende Grenzkontrollen"
+    },
+    {
+      "id": "post_3_text",
+      "value": "Zur Eindämmung der Infektionsgefahr durch das Coronavirus schränkt die Bundesregierung vorübergehend den grenzüberschreitenden Verkehr aus Frankreich, Österreich, Luxemburg, der Schweiz und Dänemark ein. Zudem ist ein Grenzübertritt nur noch an bestimmten Grenzübergangsstellen möglich. Der Warenverkehr bleibt davon unberührt, auch Berufspendler können weiter einreisen."
+    },
+    {
+      "id": "post_3_source",
+      "value": "bundesregierung.de"
+    },
+    {
+      "id": "post_3_timestamp",
+      "value": "2020-03-19T08:33:16.499Z"
+    },
+    {
+      "id": "post_3_url",
+      "value": "https://www.bundesregierung.de/breg-de/themen/coronavirus/kontrollen-an-den-grenzen-1730742"
+    },
+    {
+      "id": "post_4_headline",
+      "value": "Zusammen gegen Corona - Ihre Engagement ist jetzt gefragt!"
+    },
+    {
+      "id": "post_4_text",
+      "value": "Unterstützungspersonal Krisenmanagement (m/w/d) in der Funktion „Containment Scout\" dringend gesucht! Gemeinsam mit dem Bundesverwaltungsamt sucht das Robert Koch-Institut Mitarbeiterinnen und Mitarbeiter (Containment Scouts) zur Unterstützung der Landesbehörden und Gesundheitsämter im Rahmen des COVID 19-Geschehens."
+    },
+    {
+      "id": "post_4_source",
+      "value": "www.rki.de"
+    },
+    {
+      "id": "post_5_timestamp",
+      "value": "2020-03-18T22:33:44.499Z"
+    },
+    {
+      "id": "post_4_url",
+      "value": "https://www.rki.de/DE/Content/Service/Stellen/Containement_Scout.html"
+    },
+    {
+      "id": "post_5_headline",
+      "value": "Coronavirus Resource Center"
+    },
+    {
+      "id": "post_5_text",
+      "value": "Johns Hopkins experts in global public health, infectious disease, and emergency preparedness have been at the forefront of the international response to COVID-19."
+    },
+    {
+      "id": "post_5_source",
+      "value": "Johns Hopkins University"
+    },
+    {
+      "id": "post_5_timestamp",
+      "value": "2020-03-17T11:34:21.499Z"
+    },
+    {
+      "id": "post_5_url",
+      "value": "https://coronavirus.jhu.edu/"
+    },
+    {
+      "id": "post_6_headline",
+      "value": "Neue Genschere funktioniert auch bei Coronavirus"
+    },
+    {
+      "id": "post_6_text",
+      "value": "Eine neue Genschere kann auch RNA-basierte-Strukturen wie den Coronavirus manipulieren. Das bisherige CRISPR/Cas9-Verfahren war hingegen auf DNA beschränkt."
+    },
+    {
+      "id": "post_6_source",
+      "value": "forschung-und-wissen.de"
+    },
+    {
+      "id": "post_6_timestamp",
+      "value": "2020-03-16T18:32:00.499Z"
+    },
+    {
+      "id": "post_6_url",
+      "value": "https://www.forschung-und-wissen.de/nachrichten/medizin/neue-genschere-funktioniert-auch-bei-coronavirus-13373755"
+    },
+    {
+      "id": "post_7_headline"
+    },
+    {
+      "id": "post_7_text"
+    },
+    {
+      "id": "post_7_source"
+    },
+    {
+      "id": "post_7_timestamp"
+    },
+    {
+      "id": "post_7_url"
+    },
+    {},
+    {
+      "id": "number_death_label",
+      "value": "Todesfälle in Deutschland "
+    },
+    {
+      "id": "number_death",
+      "value": 84
+    },
+    {
+      "id": "number_infected_label",
+      "value": "Coronavirus-Fälle in Deutschland "
+    },
+    {
+      "id": "number_infected",
+      "value": 22364
+    }
+  ]
+}

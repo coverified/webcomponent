@@ -17,7 +17,7 @@ function createDataStore() {
         update,
         set,
         load: key => {
-            setJsonFromUrl(`${API_BASE}/${key}`, set, key);
+            setJsonFromUrl(`${API_BASE}/${key}.json`, set, key);
         },
     };
 }
