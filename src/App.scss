@@ -1,5 +1,6 @@
 :host {
     --color-primary: #3753ff;
+    --color-focus: #36db93;
     --color-text: #1c1c1c;
     --color-bg: #fff;
     --color-text-on-primary: #fff;
@@ -32,6 +33,14 @@
     max-width: calc(100vw - (2 * var(--widget-offset)));
     line-height: 1.5;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
+    &,
+    * {
+        &:focus {
+            outline: none;
+            box-shadow: inset 0 0 0 .1rem var(--color-focus), 0 0 0 .1rem var(--color-focus);
+        }
+    }
 }
 
 svg {
@@ -90,7 +99,8 @@ summary {
     align-items: center;
     cursor: pointer;
     font-weight: 700;
-    border-radius: 3.5rem;
+    border-radius: 4rem;
+    padding: .25rem;
 
     &::-webkit-details-marker {
         display: none;
