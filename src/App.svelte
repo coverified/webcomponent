@@ -142,7 +142,7 @@
             </g>
         </symbol>
         <symbol id="icon-close" viewBox="0 0 17 16">
-            <g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-width="3"
+            <g fill="none" fill-rule="evenodd" stroke="#3753FF" stroke-linecap="round" stroke-width="3"
                transform="matrix(.70710678 .70710678 -.70710678 .70710678 8.146491 -5.081369)">
                 <path d="m9.5 0v17.823"/>
                 <path d="m9.5 0v17.823" transform="matrix(0 -1 1 0 .589 18.411)"/>
