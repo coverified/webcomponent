@@ -109,6 +109,7 @@
         </section>
     </details>
 {/if}
+
 {#if debug === true || debug === 'true'}
     <h3>Settings:</h3>
     <p>{area}</p>

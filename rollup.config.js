@@ -7,13 +7,13 @@ import autoPreprocess from 'svelte-preprocess';
 
 const production = !process.env.ROLLUP_WATCH;
 
-export default {
-	input: 'src/web-info-widget.js',
+export default ['web-info-widget', 'embed'].map((name, index) => ({
+	input: `src/${name}.js`,
 	output: {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/web-info-widget.js',
+		file: `public/build/${name}.js`,
 	},
 	plugins: [
 		svelte({
@@ -49,7 +49,10 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('public'),
+		!production && livereload({
+			watch: `public/${name}.*`,
+			port: 5100 + index,
+		}),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
@@ -58,7 +61,7 @@ export default {
 	watch: {
 		clearScreen: false
 	}
-};
+}));
 
 function serve() {
 	let started = false;
