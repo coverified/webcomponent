@@ -152,6 +152,12 @@ summary {
     }
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 .article {
     display: block;
     padding: var(--open-padding);

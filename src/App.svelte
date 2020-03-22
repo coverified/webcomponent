@@ -68,47 +68,51 @@
                     </td>
                 </tr>
             </table>
-            {#each Array(postLimit) as _, i}
-                <a href="{$data[`post_${i+1}_url`]}"
-                   target="_blank"
-                   rel="noopener"
-                   class="article"
-                   aria-label="{$data[`post_${i+1}_headline`]}"
-                   title="{$data[`post_${i+1}_headline`]}">
-                    <article>
-                        <header>
-                            <h2>
-                            <span class="verified">
-                                <svg class="icon icon-logo">
-                                    <use xlink:href="#icon-logo"></use>
-                                </svg>
-                                <span class="verified__label">
-                                    {$data[`verified_label`]}
-                                </span>
-                            </span>
-                                {$data[`post_${i+1}_headline`]}
-                            </h2>
-                            <small>
-                                <span class="source">
-                                    <svg class="icon icon-external">
-                                        <use xlink:href="#icon-external"></use>
-                                    </svg>
-                                    {$data[`post_${i+1}_source`]}
-                                </span>
-                                <span class="timestamp">
-                                    <svg class="icon icon-clock">
-                                        <use xlink:href="#icon-clock"></use>
-                                    </svg>
-                                    {getElapsedTime($data[`post_${i+1}_timestamp`])}
-                                </span>
-                            </small>
-                        </header>
-                        <main>
-                            <p>{$data[`post_${i+1}_text`]}</p>
-                        </main>
-                    </article>
-                </a>
-            {/each}
+            <ul>
+                {#each Array(postLimit) as _, i}
+                    <li>
+                        <a href="{$data[`post_${i+1}_url`]}"
+                           target="_blank"
+                           rel="noopener"
+                           class="article"
+                           aria-label="{$data[`post_${i+1}_headline`]}"
+                           title="{$data[`post_${i+1}_headline`]}">
+                            <article>
+                                <header>
+                                    <h2>
+                                        <span class="verified">
+                                            <svg class="icon icon-logo">
+                                                <use xlink:href="#icon-logo"></use>
+                                            </svg>
+                                            <span class="verified__label">
+                                                {$data[`verified_label`]}
+                                            </span>
+                                        </span>
+                                        {$data[`post_${i+1}_headline`]}
+                                    </h2>
+                                    <small>
+                                        <span class="source">
+                                            <svg class="icon icon-external">
+                                                <use xlink:href="#icon-external"></use>
+                                            </svg>
+                                            {$data[`post_${i+1}_source`]}
+                                        </span>
+                                        <span class="timestamp">
+                                            <svg class="icon icon-clock">
+                                                <use xlink:href="#icon-clock"></use>
+                                            </svg>
+                                            {getElapsedTime($data[`post_${i+1}_timestamp`])}
+                                        </span>
+                                    </small>
+                                </header>
+                                <main>
+                                    <p>{$data[`post_${i+1}_text`]}</p>
+                                </main>
+                            </article>
+                        </a>
+                    </li>
+                {/each}
+            </ul>
         </section>
     </details>
 {/if}
@@ -172,7 +176,8 @@
         <symbol id="icon-info" viewBox="0 0 15 15">
             <g fill="none" fill-rule="evenodd">
                 <circle fill="#1C1C1C" cx="7.5" cy="7.5" r="7.5"/>
-                <path d="M7.5 7.8a.7.7 0 0 1 .694.605L8.2 8.5v3a.7.7 0 0 1-1.394.095L6.8 11.5v-3a.7.7 0 0 1 .7-.7z" fill="#FFF"
+                <path d="M7.5 7.8a.7.7 0 0 1 .694.605L8.2 8.5v3a.7.7 0 0 1-1.394.095L6.8 11.5v-3a.7.7 0 0 1 .7-.7z"
+                      fill="#FFF"
                       fill-rule="nonzero"/>
                 <circle fill="#FFF" cx="7.5" cy="5.25" r="1.25"/>
             </g>
