@@ -39,7 +39,7 @@ svg {
 }
 
 details {
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .2));
     border-radius: .5rem;
 
     > section {
@@ -50,13 +50,13 @@ details {
     &[open] {
         background-color: var(--color-bg);
         padding: var(--open-padding);
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .2);
 
         summary {
             background-color: var(--color-primary);
             color: var(--color-text-on-primary);
             border-radius: .5rem;
-            padding: .75rem 1rem;
+            padding: .625rem 1rem;
             margin-top: calc(-1 * var(--open-padding));
             margin-right: calc(-1 * var(--open-padding));
             margin-left: calc(-1 * var(--open-padding));
@@ -65,8 +65,8 @@ details {
                 --color-icon-bg: var(--color-text-on-primary);
                 --color-icon-check: var(--color-primary);
 
-                width: 2.25rem;
-                height: 2.25rem;
+                width: 1.875rem;
+                height: 1.875rem;
             }
 
             .icon-close {
@@ -103,8 +103,8 @@ summary {
 
     .icon-close {
         display: none;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.25rem;
+        height: 1.25rem;
         margin-left: auto;
     }
 
@@ -142,28 +142,29 @@ summary {
     display: block;
     padding: var(--open-padding);
     padding-top: calc(var(--open-padding) * 2);
+    padding-bottom: 0;
     border-radius: .25rem;
     margin-top: var(--open-padding);
     color: var(--color-text);
     position: relative;
     border-top: 1px solid var(--color-border);
 
-    &:after {
-        content: '↗';
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 1em;
-        height: 1em;
-        border: .1em solid currentColor;
-        border-radius: .2em;
-        position: absolute;
-        top: calc(var(--open-padding) * 2);
-        right: var(--open-padding);
-        transform: scale(0);
-        transform-origin: left bottom;
-        transition: var(--transition);
-    }
+    //&:after {
+    //    content: '↗';
+    //    display: flex;
+    //    justify-content: center;
+    //    align-items: center;
+    //    width: 1em;
+    //    height: 1em;
+    //    border: .1em solid currentColor;
+    //    border-radius: .2em;
+    //    position: absolute;
+    //    top: calc(var(--open-padding) * 2);
+    //    right: var(--open-padding);
+    //    transform: scale(0);
+    //    transform-origin: left bottom;
+    //    transition: var(--transition);
+    //}
 
     &,
     &:focus,
@@ -171,12 +172,12 @@ summary {
         text-decoration: none;
     }
 
-    &:focus,
-    &:hover {
-        &:after {
-            transform: scale(1);
-        }
-    }
+    //&:focus,
+    //&:hover {
+    //    &:after {
+    //        transform: scale(1);
+    //    }
+    //}
 
     header {
         margin-bottom: .5rem;
@@ -195,6 +196,13 @@ summary {
         flex-direction: row;
         flex-wrap: nowrap;
         color: #969696;
+        padding-top: .25rem;
+    }
+
+    .icon {
+        width: 1.2em;
+        height: 1.2em;
+        margin-bottom: -.225em;
     }
 
     .source {
@@ -207,11 +215,13 @@ summary {
         margin-left: 1.5em;
         flex-grow: 1;
         width: 100%;
+    }
 
-        .icon {
-            width: 1.2em;
-            height: 1.2em;
-            margin-bottom: -.225em;
+    main {
+        > * {
+            &:last-child {
+                margin-bottom: .5rem;
+            }
         }
     }
 }
@@ -260,14 +270,14 @@ summary {
     }
 }
 
-.btn {
-    background-color: var(--color-primary);
-    color: var(--color-text-on-primary);
-    border-radius: .33rem;
-    padding: .5rem 2.5rem;
-    display: inline-block;
-    font-weight: 700;
-}
+//.btn {
+//    background-color: var(--color-primary);
+//    color: var(--color-text-on-primary);
+//    border-radius: .33rem;
+//    padding: .5rem 2.5rem;
+//    display: inline-block;
+//    font-weight: 700;
+//}
 
 @media (min-width: 512px) {
     :host {
