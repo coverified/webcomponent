@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/webinfowidget-webcomponent/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
 # Corona Info
 
@@ -8,7 +8,7 @@ Show your websites users important and verified information about the Coronaviru
 
 It's as easy as adding 
 ```html
-<script async src='https://webinfowidget-webcomponent.netlify.com/build/embed.js'></script>
+<script async src='https://coverified-webcomponent.netlify.com/build/embed.js'></script>
 ```
 to your website. This will load our widget and place it on your website.
 
