@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
-# CoVerified
+# [CoVerified](https://www.coverified.info/)
 
 Show your websites users important and verified information about the Coronavirus outbreak
 
@@ -10,7 +10,7 @@ Show your websites users important and verified information about the Coronaviru
 
 It's as easy as adding 
 ```html
-<script async src='https://coverified-webcomponent.netlify.com/build/embed.js'></script>
+<script async src="https://webcomponent.coverified.info/build/embed.js"></script>
 ```
 to your website. This will load our tool and place it on your website.
 
