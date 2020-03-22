@@ -64,6 +64,7 @@
             {#each Array(postLimit) as _, i}
                 <a href="{$data[`post_${i+1}_url`]}"
                    target="_blank"
+                   rel="noopener"
                    class="article"
                    title="{$data[`post_${i+1}_headline`]}">
                     <article>
