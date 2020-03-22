@@ -73,6 +73,7 @@
                    target="_blank"
                    rel="noopener"
                    class="article"
+                   aria-label="{$data[`post_${i+1}_headline`]}"
                    title="{$data[`post_${i+1}_headline`]}">
                     <article>
                         <header>
