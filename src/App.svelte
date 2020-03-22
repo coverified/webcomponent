@@ -39,7 +39,7 @@
             </svg>
             <span>
                 {$data[`button_label`]}
-                <a href="https://coverified-website.netlify.com/" target="_blank" rel="noopener" title="CoVerified">
+                <a href="https://www.coverified.info/" target="_blank" rel="noopener" title="CoVerified">
                     <svg class="icon icon-info">
                         <use xlink:href="#icon-info"></use>
                     </svg>
