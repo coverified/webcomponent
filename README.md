@@ -1,3 +1,5 @@
+![CoVerified Cover Image](./cover.jpg)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
 # CoVerified
