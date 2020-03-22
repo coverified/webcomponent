@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
-# Corona Info
+# CoVerified
 
 Show your websites users important and verified information about the Coronavirus outbreak
 
@@ -10,7 +10,7 @@ It's as easy as adding
 ```html
 <script async src='https://coverified-webcomponent.netlify.com/build/embed.js'></script>
 ```
-to your website. This will load our widget and place it on your website.
+to your website. This will load our tool and place it on your website.
 
 We'll take care of updating the information with new, important and verified Data. 100% Fake-News free.
 
@@ -18,7 +18,7 @@ We'll take care of updating the information with new, important and verified Dat
 
 - Fast: We made sure that our script is as small as possible - it's only 7.2kb
 - Secure: No data is collected - we value your privacy
-- Accessible: We've optimized the widget for screenreaders and keyboard users
+- Accessible: We've optimized the tool for screenreaders and keyboard users
 
 ### Customizable
 
