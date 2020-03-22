@@ -21,7 +21,7 @@
             const widgets = document.querySelectorAll('web-info-widget');
 
             [...widgets].forEach(widget => {
-                if(!widget.contains(e.target)) {
+                if (!widget.contains(e.target)) {
                     open = false;
                 }
             });
@@ -37,7 +37,14 @@
             <svg class="icon icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
-            <span>{$data[`button_label`]}</span>
+            <span>
+                {$data[`button_label`]}
+                <a href="https://coverified-website.netlify.com/" target="_blank" rel="noopener" title="CoVerified">
+                    <svg class="icon icon-info">
+                        <use xlink:href="#icon-info"></use>
+                    </svg>
+                </a>
+            </span>
             <svg class="icon icon-close">
                 <use xlink:href="#icon-close"></use>
             </svg>
@@ -46,10 +53,10 @@
             <table class="numbers">
                 <tr>
                     <td>
-                        <b>{$data[`number_infected`]}</b>
+                        <b>{$data[`number_active_cases`]}</b>
                     </td>
                     <td>
-                        {$data[`number_infected_label`]}<br>
+                        {$data[`number_active_cases_label`]}<br>
                     </td>
                 </tr>
                 <tr>
@@ -98,11 +105,6 @@
                         <main>
                             <p>{$data[`post_${i+1}_text`]}</p>
                         </main>
-<!--                        <footer>-->
-<!--                        <span class="btn">-->
-<!--                            {$data[`link_label`]}-->
-<!--                        </span>-->
-<!--                        </footer>-->
                     </article>
                 </a>
             {/each}
@@ -142,7 +144,7 @@
             </g>
         </symbol>
         <symbol id="icon-close" viewBox="0 0 17 16">
-            <g fill="none" fill-rule="evenodd" stroke="#3753FF" stroke-linecap="round" stroke-width="3"
+            <g fill="none" fill-rule="evenodd" stroke="#1c1c1c" stroke-linecap="round" stroke-width="3"
                transform="matrix(.70710678 .70710678 -.70710678 .70710678 8.146491 -5.081369)">
                 <path d="m9.5 0v17.823"/>
                 <path d="m9.5 0v17.823" transform="matrix(0 -1 1 0 .589 18.411)"/>
@@ -151,12 +153,27 @@
         <symbol id="icon-clock" viewBox="0 0 17 16">
             <g fill="none" fill-rule="evenodd">
                 <circle cx="7.5" cy="7.5" fill="#9c9c9c" r="7.5"/>
-                <path d="m4 7.634h4.088l3.053-3.134" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.395"/>
+                <path d="m4 7.634h4.088l3.053-3.134" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="1.395"/>
             </g>
         </symbol>
-        <symbol id="icon-external" viewBox="0 0 24 24">
-            <g fill="#9c9c9c" fill-rule="evenodd">
-                <path d="M17 13v6c0 0.276-0.111 0.525-0.293 0.707s-0.431 0.293-0.707 0.293h-11c-0.276 0-0.525-0.111-0.707-0.293s-0.293-0.431-0.293-0.707v-11c0-0.276 0.111-0.525 0.293-0.707s0.431-0.293 0.707-0.293h6c0.552 0 1-0.448 1-1s-0.448-1-1-1h-6c-0.828 0-1.58 0.337-2.121 0.879s-0.879 1.293-0.879 2.121v11c0 0.828 0.337 1.58 0.879 2.121s1.293 0.879 2.121 0.879h11c0.828 0 1.58-0.337 2.121-0.879s0.879-1.293 0.879-2.121v-6c0-0.552-0.448-1-1-1s-1 0.448-1 1zM10.707 14.707l9.293-9.293v3.586c0 0.552 0.448 1 1 1s1-0.448 1-1v-6c0-0.136-0.027-0.265-0.076-0.383s-0.121-0.228-0.216-0.323c-0.001-0.001-0.001-0.001-0.002-0.002-0.092-0.092-0.202-0.166-0.323-0.216-0.118-0.049-0.247-0.076-0.383-0.076h-6c-0.552 0-1 0.448-1 1s0.448 1 1 1h3.586l-9.293 9.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0z"></path>
+        <symbol id="icon-external" viewBox="0 0 15 15">
+            <g fill="none" fill-rule="evenodd">
+                <circle fill="#9C9C9C" cx="7.5" cy="7.5" r="7.5"/>
+                <g transform="translate(3.5 3.5)" fill="#FFF" stroke="#FFF">
+                    <path d="M5.775 4.535v2.31a.383.383 0 0 1-.385.385H1.155a.383.383 0 0 1-.385-.385V2.61a.383.383 0 0 1 .385-.385h2.31a.385.385 0 0 0 0-.77h-2.31A1.152 1.152 0 0 0 0 2.61v4.235A1.152 1.152 0 0 0 1.155 8H5.39a1.152 1.152 0 0 0 1.155-1.155v-2.31a.385.385 0 0 0-.77 0z"
+                          stroke-width=".3"/>
+                    <path d="M3.578 4.976l3.639-3.639v1.404a.392.392 0 0 0 .783 0V.391a.39.39 0 0 0-.114-.276h-.001A.39.39 0 0 0 7.608 0h-2.35a.392.392 0 0 0 0 .783h1.405l-3.64 3.64a.391.391 0 1 0 .555.553z"
+                          stroke-width=".4"/>
+                </g>
+            </g>
+        </symbol>
+        <symbol id="icon-info" viewBox="0 0 15 15">
+            <g fill="none" fill-rule="evenodd">
+                <circle fill="#1C1C1C" cx="7.5" cy="7.5" r="7.5"/>
+                <path d="M7.5 7.8a.7.7 0 0 1 .694.605L8.2 8.5v3a.7.7 0 0 1-1.394.095L6.8 11.5v-3a.7.7 0 0 1 .7-.7z" fill="#FFF"
+                      fill-rule="nonzero"/>
+                <circle fill="#FFF" cx="7.5" cy="5.25" r="1.25"/>
             </g>
         </symbol>
     </defs>

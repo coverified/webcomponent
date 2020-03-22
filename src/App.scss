@@ -62,22 +62,29 @@ details {
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .2);
 
         summary {
-            background-color: var(--color-bg);
-            color: var(--color-primary);
+            background-color: #E1E3E6;
             border-radius: .5rem;
-            padding: .625rem 3.333rem;
+            padding: .625rem 3.333rem .625rem 1.25rem;
             margin-top: calc(-1 * var(--open-padding));
             margin-right: calc(-1 * var(--open-padding));
             margin-left: calc(-1 * var(--open-padding));
             position: relative;
             border-bottom: 1px solid var(--color-border);
+            overflow: hidden;
+
+            &:before {
+                content: '';
+                display: block;
+                width: .275em;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: linear-gradient(to bottom, #000000 33%, #de0000 33.001%, #de0000 66%, #ffcf00 66.001%);
+            }
 
             .icon-logo {
-                width: 1.875rem;
-                height: 1.875rem;
-                position: absolute;
-                left: .75rem;
-                top: .575rem;
+                display: none;
             }
 
             .icon-close {
@@ -100,7 +107,6 @@ summary {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    cursor: pointer;
     font-weight: 700;
     border-radius: 4rem;
     padding: .25rem;
@@ -124,31 +130,24 @@ summary {
 
     span {
         display: none;
-        text-align: center;
         width: 100%;
+
+        .icon {
+            width: .75em;
+            height: .75em;
+            margin-left: .25em;
+        }
     }
 }
 
 .numbers {
-    padding: var(--open-padding);
-    padding-left: 1rem;
+    padding: var(--open-padding) calc(var(--open-padding) / 2);
     position: relative;
     margin: 0;
     margin-top: var(--open-padding);
 
     b {
         margin-right: .75em;
-    }
-
-    &:before {
-        content: '';
-        display: block;
-        width: .275em;
-        height: 80%;
-        position: absolute;
-        left: .25rem;
-        top: 10%;
-        background: linear-gradient(to bottom, #000000 33%, #de0000 33.001%, #de0000 66%, #ffcf00 66.001%);
     }
 }
 
@@ -259,15 +258,6 @@ summary {
         }
     }
 }
-
-//.btn {
-//    background-color: var(--color-primary);
-//    color: var(--color-text-on-primary);
-//    border-radius: .33rem;
-//    padding: .5rem 2.5rem;
-//    display: inline-block;
-//    font-weight: 700;
-//}
 
 @media (min-width: 512px) {
     :host {

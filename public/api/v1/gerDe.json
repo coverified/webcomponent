@@ -159,15 +159,15 @@
     },
     {
       "id": "number_death",
-      "value": 84
+      "value": "92"
     },
     {
-      "id": "number_infected_label",
-      "value": "Coronavirus-Fälle in Deutschland "
+      "id": "number_active_cases_label",
+      "value": "Aktive Coronavirus-Fälle in Deutschland "
     },
     {
-      "id": "number_infected",
-      "value": 22364
+      "id": "number_active_cases",
+      "value": "23.313"
     }
   ]
 }
