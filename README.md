@@ -22,6 +22,8 @@ We'll take care of updating the information with new, important and verified Dat
 - Secure: No data is collected - we value your privacy
 - Accessible: We've optimized the tool for screenreaders and keyboard users
 
+![100% Lighthouse](./lighthouse.png)
+
 ### Customizable
 
 Position it where you want like so:
