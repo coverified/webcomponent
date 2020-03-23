@@ -28,7 +28,7 @@ We'll take care of updating the information with new, important and verified Dat
 
 Position it where you want like so:
 ```css
-web-info-widget {
+coverified-widget {
     left: 5rem;
     top: 5rem;
     right: auto;
@@ -38,7 +38,7 @@ web-info-widget {
 
 Adjust the primary color via CSS custom properties
 ```css
-web-info-widget {
+coverified-widget {
     --color-primary: #bf1e3a;
 }
 ```

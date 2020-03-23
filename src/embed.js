@@ -1,4 +1,4 @@
-import './webcomponent';
+import './widget';
 
-const element = document.createElement('web-info-widget');
+const element = document.createElement('coverified-widget');
 document.body.appendChild(element);

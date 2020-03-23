@@ -5,7 +5,7 @@
     --color-text: #1c1c1c;
     --color-bg: #fff;
     --color-text-on-primary: #fff;
-    --widget-offset: 2rem;
+    --widget-offset: 1rem;
     --widget-position: fixed;
     --widget-top: auto;
     --widget-right: var(--widget-offset);
@@ -52,6 +52,8 @@ svg {
 details {
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .2));
     border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
 
     > section {
         max-height: 70vh;
@@ -60,16 +62,38 @@ details {
 
     &[open] {
         background-color: var(--color-bg);
-        padding: var(--open-padding);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .2);
+
+        &:before,
+        &:after {
+            content: '';
+            width: 100%;
+            height: calc(var(--open-padding) * 2);
+            display: block;
+            position: absolute;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        &:before{
+            top: 3.125rem;
+            background: linear-gradient(to top, transparent, white);
+        }
+
+        &:after {
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, white);
+        }
+
+        > section {
+            padding: var(--open-padding);
+        }
 
         summary {
             background-color: #E1E3E6;
             border-radius: .5rem;
             padding: .625rem 3.333rem .625rem 1.25rem;
-            margin-top: calc(-1 * var(--open-padding));
-            margin-right: calc(-1 * var(--open-padding));
-            margin-left: calc(-1 * var(--open-padding));
             position: relative;
             border-bottom: 1px solid var(--color-border);
             overflow: hidden;
@@ -143,10 +167,9 @@ summary {
 }
 
 .numbers {
-    padding: var(--open-padding) calc(var(--open-padding) / 2);
+    padding: calc(var(--open-padding) / 2);
     position: relative;
     margin: 0;
-    margin-top: var(--open-padding);
 
     b {
         margin-right: .75em;
@@ -191,7 +214,7 @@ ul {
     small {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         color: #767676;
         padding-top: .25rem;
     }
@@ -205,13 +228,11 @@ ul {
     .source {
         white-space: nowrap;
         text-overflow: ellipsis;
+        margin-right: 1.5em;
     }
 
     .timestamp {
         white-space: nowrap;
-        margin-left: 1.5em;
-        flex-grow: 1;
-        width: 100%;
     }
 
     main {
@@ -271,6 +292,12 @@ ul {
 
 @media (min-width: 512px) {
     :host {
+        --widget-offset: 2rem;
+        --widget-position: fixed;
+        --widget-top: auto;
+        --widget-right: var(--widget-offset);
+        --widget-bottom: var(--widget-offset);
+
         max-width: 420px;
     }
 }
