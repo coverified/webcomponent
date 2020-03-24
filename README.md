@@ -77,7 +77,7 @@ yarn build
 
 You can run the newly built app with `yarn start`.
 
-### Code of Conduct
+## Code of Conduct
 
 We'd like you to follow our [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 
