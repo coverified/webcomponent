@@ -1,4 +1,4 @@
-export const API_BASE = 'https://data.coverified.info/v1';
+export const API_BASE = window.__override_coverified_data_provider || 'https://data.coverified.info/v1';
 export const ENDPOINT_CONFIG = `${API_BASE}/config.json`;
 export const ICON_DEFS = `
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
