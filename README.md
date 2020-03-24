@@ -18,9 +18,9 @@ We'll take care of updating the information with new, important and verified Dat
 
 ### Fast, secure and accessible
 
-- Fast: We made sure that our script is as small as possible - it's only 7.5kb gzipped
-- Secure: No data is collected - we value your privacy
-- Accessible: We've optimized the tool for screenreaders and keyboard users
+- **Accessible**: We made sure that our script is as small as possible - it's only 7.5kb gzipped
+- **Secure**: No data is collected - we value your privacy
+- **Accessible**: We've optimized the tool for screenreaders and keyboard users
 
 ![100% Lighthouse](.github/lighthouse.png)
 
