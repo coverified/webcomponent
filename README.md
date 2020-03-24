@@ -2,9 +2,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
-# [CoVerified](https://www.coverified.info/)
+# [CoVerified](https://www.coverified.info/) Web Component
 
-Show your websites users important and verified information about the Coronavirus outbreak
+*[CoVerified](https://www.coverified.info/) is a tool to show your websites users important and verified information about the COVID-19 outbreak*
 
 ## Simple Integration
 
