@@ -1,4 +1,4 @@
-![CoVerified Cover Image](./cover.jpg)
+![CoVerified Cover Image](.github/cover.jpg)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7211686c-ffa1-4b80-be42-258ece53ce56/deploy-status)](https://app.netlify.com/sites/coverified-webcomponent/deploys)
 
@@ -22,7 +22,7 @@ We'll take care of updating the information with new, important and verified Dat
 - Secure: No data is collected - we value your privacy
 - Accessible: We've optimized the tool for screenreaders and keyboard users
 
-![100% Lighthouse](./lighthouse.png)
+![100% Lighthouse](.github/lighthouse.png)
 
 ### Customizable
 
@@ -43,7 +43,7 @@ coverified-widget {
 }
 ```
 
-## Help Developing and fight the virus
+## Contribute to fight the virus
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
 
@@ -76,3 +76,13 @@ yarn build
 ```
 
 You can run the newly built app with `yarn start`.
+
+### Code of Conduct
+
+We'd like you to follow our [Code of Conduct](.github/CODE_OF_CONDUCT.md)
+
+---
+
+![WirVsVirus](.github/wirvsvirus.svg)
+
+This project was [initially started](https://devpost.com/software/1_039_c_staatlichekommunikation_webinfowidget) during the [#wirvsvirus hackathon](https://twitter.com/hashtag/WirVsVirusHack)
