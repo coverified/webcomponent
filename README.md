@@ -83,6 +83,6 @@ We'd like you to follow our [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 
 ---
 
-![WirVsVirus](.github/wirvsvirus.svg)
+[![WirVsVirus](.github/wirvsvirus.svg)](https://wirvsvirushackathon.org/)
 
 This project was [initially started](https://devpost.com/software/1_039_c_staatlichekommunikation_webinfowidget) during the [#wirvsvirus hackathon](https://twitter.com/hashtag/WirVsVirusHack)
