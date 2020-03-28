@@ -2,11 +2,11 @@
 
 <script>
     import {onMount} from 'svelte';
-    import {config, data} from './stores.js';
+    import {config, cases, news} from './stores.js';
     import {ICON_DEFS} from './global.js';
-    import {dataKeyFromConfig, getElapsedTime} from './util';
+    import {getElapsedTime, hostNameFromUrl} from './util';
 
-    export let area = 'GER';
+    export let area = 'DEU';
     export let language = 'de';
     export let postLimit = 3;
     export let open = false;
@@ -17,7 +17,10 @@
     }
 
     onMount(async () => {
-        data.load(dataKeyFromConfig(area, language));
+        config.load(language);
+        cases.load(area);
+        news.load();
+        // close widget if there was a click outside of it
         document.addEventListener('click', e => {
             const widgets = document.querySelectorAll('coverified-widget');
 
@@ -32,92 +35,98 @@
 
 <style src="Widget.scss"></style>
 
-{#if $data}
+{#if $config}
     <details open={open}>
         <summary on:click|preventDefault={toggleOpen}>
             <svg class="icon icon-logo">
                 <use xlink:href="#icon-logo"></use>
             </svg>
             <span>
-                {$data[`button_label`]}
-<!--                <a href="https://www.coverified.info/"-->
-<!--                   class="btn-info"-->
-<!--                   target="_blank"-->
-<!--                   rel="noopener"-->
-<!--                   title="CoVerified">-->
-<!--                    <svg class="icon icon-info">-->
-<!--                        <use xlink:href="#icon-info"></use>-->
-<!--                    </svg>-->
-<!--                </a>-->
+                CoVerified
+                <!--                <a href="https://www.coverified.info/"-->
+                <!--                   class="btn-info"-->
+                <!--                   target="_blank"-->
+                <!--                   rel="noopener"-->
+                <!--                   title="CoVerified">-->
+                <!--                    <svg class="icon icon-info">-->
+                <!--                        <use xlink:href="#icon-info"></use>-->
+                <!--                    </svg>-->
+                <!--                </a>-->
             </span>
             <svg class="icon icon-close">
                 <use xlink:href="#icon-close"></use>
             </svg>
         </summary>
         <section>
-            <table class="numbers">
-                <tr>
-                    <td>
-                        <b>{$data[`number_active_cases`]}</b>
-                    </td>
-                    <td>
-                        {$data[`number_active_cases_label`]}<br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>{$data[`number_death`]}</b>
-                    </td>
-                    <td>
-                        {$data[`number_death_label`]}
-                    </td>
-                </tr>
-            </table>
-            <ul>
-                {#each Array(postLimit) as _, i}
-                    <li>
-                        <a href="{$data[`post_${i+1}_url`]}"
-                           target="_blank"
-                           rel="noopener"
-                           class="article"
-                           aria-label="{$data[`post_${i+1}_headline`]}"
-                           title="{$data[`post_${i+1}_headline`]}">
-                            <article>
-                                <header>
-                                    <h2>
-                                        <span class="verified">
-                                            <svg class="icon icon-logo">
-                                                <use xlink:href="#icon-logo"></use>
-                                            </svg>
-                                            <span class="verified__label">
-                                                {$data[`verified_label`]}
-                                            </span>
-                                        </span>
-                                        {$data[`post_${i+1}_headline`]}
-                                    </h2>
-                                    <small>
-                                        <span class="source">
-                                            <svg class="icon icon-external">
-                                                <use xlink:href="#icon-external"></use>
-                                            </svg>
-                                            {$data[`post_${i+1}_source`]}
-                                        </span>
-                                        <span class="timestamp">
-                                            <svg class="icon icon-clock">
-                                                <use xlink:href="#icon-clock"></use>
-                                            </svg>
-                                            {getElapsedTime($data[`post_${i+1}_timestamp`])}
-                                        </span>
-                                    </small>
-                                </header>
-                                <main>
-                                    <p>{$data[`post_${i+1}_text`]}</p>
-                                </main>
-                            </article>
-                        </a>
-                    </li>
-                {/each}
-            </ul>
+            {#if $cases}
+                <table class="numbers">
+                    <tr>
+                        <td>
+                            <b>{$cases.confirmed}</b>
+                        </td>
+                        <td>
+                            {$config.strings.casesAll}<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>{$cases.deaths}</b>
+                        </td>
+                        <td>
+                            {$config.strings.casesDeaths}
+                        </td>
+                    </tr>
+                </table>
+            {/if}
+            {#if $news}
+                <ul>
+                    {#each $news as item, i}
+                        {#if i < postLimit}
+                            <li>
+                                <a href="{item.link}"
+                                   target="_blank"
+                                   rel="noopener"
+                                   class="article"
+                                   aria-label="{item.title}"
+                                   title="{item.title}">
+                                    <article>
+                                        <header>
+                                            <h2>
+                                                <span class="verified">
+                                                    <svg class="icon icon-logo">
+                                                        <use xlink:href="#icon-logo"></use>
+                                                    </svg>
+                                                    <span class="verified__label">
+                                                        {$config.strings.verified}
+                                                    </span>
+                                                </span>
+                                                {item.title}
+                                            </h2>
+                                            <small>
+                                                <span class="source">
+                                                    <svg class="icon icon-external">
+                                                        <use xlink:href="#icon-external"></use>
+                                                    </svg>
+                                                    {hostNameFromUrl(item.link)}
+                                                </span>
+                                                <span class="timestamp">
+                                                    <svg class="icon icon-clock">
+                                                        <use xlink:href="#icon-clock"></use>
+                                                    </svg>
+                                                    {getElapsedTime(item.pubDate)}
+                                                </span>
+                                            </small>
+                                        </header>
+                                        <main>
+                                            <p>{item.description}</p>
+                                        </main>
+                                    </article>
+                                </a>
+                            </li>
+                        {/if}
+                    {/each}
+                </ul>
+            {/if}
         </section>
     </details>
 {/if}
@@ -128,8 +137,10 @@
     <p>{language}</p>
     <h3>Config:</h3>
     <pre>{JSON.stringify($config, null, 2)}</pre>
-    <h3>Data:</h3>
-    <pre>{JSON.stringify($data, null, 2)}</pre>
+    <h3>Cases:</h3>
+    <pre>{JSON.stringify($cases, null, 2)}</pre>
+    <h3>News:</h3>
+    <pre>{JSON.stringify($news, null, 2)}</pre>
 {/if}
 
 {@html ICON_DEFS}

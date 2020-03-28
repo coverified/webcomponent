@@ -1,27 +1,11 @@
-export const idValueArrayToObject = array => {
-    const result = {};
-
-    array.forEach(({id, value}) => result[id] = value);
-
-    return result;
-};
-
-export const setJsonFromUrl = (url, set, subfield) => {
+export const setJsonFromUrl = (url, set, transform = data => {
+    return data
+}) => {
     fetch(url)
-        .then((response) => {
+        .then(response => {
             return response.json();
         })
-        .then((data) => {
-            set(idValueArrayToObject(data[subfield]));
-        });
-};
-
-export const capitalizeFirstLetter = string => {
-    return string && string[0].toUpperCase() + string.slice(1);
-};
-
-export const dataKeyFromConfig = (area, language) => {
-    return `${area.toLowerCase()}${capitalizeFirstLetter(language.toLowerCase())}`;
+        .then(data => set(transform(data)));
 };
 
 export const getElapsedTime = timestamp => {
@@ -31,11 +15,17 @@ export const getElapsedTime = timestamp => {
     const hours = Math.floor(diff / 3600);
     const mins = Math.floor((diff % 3600) / 60);
 
-    if (hours > 48) {
+    if (hours > 48 || then > now) {
         return then.toLocaleDateString();
-    } else if (hours >= 1)  {
+    } else if (hours >= 1) {
         return `${hours}h`;
     } else {
         return `${mins}m`;
     }
+};
+
+export const hostNameFromUrl = url => {
+    url = new URL(url);
+
+    return url.hostname.replace(/www\./, '');
 };
