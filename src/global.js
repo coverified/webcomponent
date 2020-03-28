@@ -1,5 +1,13 @@
-export const API_BASE = window.__override_coverified_data_provider || 'https://data.coverified.info/v1';
-export const ENDPOINT_CONFIG = `${API_BASE}/config.json`;
+export const API_BASE = window.__override_coverified_data_provider || 'https://data.coverified.info/v2';
+export const ENDPOINT_CONFIG = `${API_BASE}/config`;
+export const ENDPOINT_CASES = `${API_BASE}/cases/country`;
+export const ENDPOINT_FEED = `${API_BASE}/feed`;
+export const FFEDS = [
+    `bundesgesundheitsministerium.de`,
+    `bundesregierung.de`,
+    `charite.de`,
+    `rki.de`,
+];
 export const ICON_DEFS = `
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
