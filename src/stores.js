@@ -1,6 +1,6 @@
 import {writable} from 'svelte/store';
 import {ENDPOINT_FEED, ENDPOINT_CASES, ENDPOINT_CONFIG, FFEDS} from './global';
-import {setJsonFromUrl} from './util';
+import {setJsonFromUrl, sortFeedItemsByDate, removeNonCoronaItemsFromFeed} from './util';
 
 const createStore = loadFunc => {
     const {subscribe, set, update} = writable(null);
@@ -26,35 +26,13 @@ export const news = createStore((set, key) => {
     Promise.allSettled(promises).then(results => {
         results.forEach(result => {
             if (result.value.status === 'ok') {
-                items = [...items, ...result.value.items];
+                result.value.items = removeNonCoronaItemsFromFeed(result.value.items);
+                result.value.items = sortFeedItemsByDate(result.value.items);
+                items = [...items, result.value.items[0]];
             }
         });
-        items = items.filter(item => {
-            const string = JSON.stringify(item).toLowerCase();
-            let result = false;
 
-            if (
-                string.includes('corona')
-                || string.includes('covid')
-                || string.includes('sars-cov')
-                || string.includes('pandemie')
-                || string.includes('pandemic')
-                || string.includes('epidemie')
-                || string.includes('epidemic')
-            ) {
-                result = true;
-            }
-
-            return result;
-        });
-        items.sort((a, b) => {
-            const dateA = new Date(a.pubDate);
-            const dateB = new Date(b.pubDate);
-
-            return dateB - dateA;
-        });
-
-        set(items);
+        set(sortFeedItemsByDate(items));
     });
 });
 
