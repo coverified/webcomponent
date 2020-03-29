@@ -76,6 +76,25 @@
                             {$config.strings.casesDeaths}
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <b class="green">{$cases.recovered}</b>
+                        </td>
+                        <td>
+                            {$config.strings.casesRecovered}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <small>
+                                {$config.strings.statusDate}
+                                {new Date().toLocaleDateString()},
+                                {$config.strings.casesSource}
+                            </small>
+                        </td>
+                    </tr>
                 </table>
             {/if}
             {#if $news}
@@ -119,6 +138,14 @@
                                         </header>
                                         <main>
                                             <p>{item.description}</p>
+                                            <span class="btn btn-arrow">
+                                                    <span class="btn-icon">
+                                                        <svg class="icon icon-arrow-right">
+                                                            <use xlink:href="#icon-arrow-right"></use>
+                                                        </svg>
+                                                    </span>
+                                                {$config.strings.moreLink}
+                                            </span>
                                         </main>
                                     </article>
                                 </a>
