@@ -148,6 +148,7 @@ summary {
     font-weight: 700;
     border-radius: 4rem;
     padding: .25rem;
+    cursor: pointer;
 
     &::-webkit-details-marker {
         display: none;
@@ -185,6 +186,12 @@ summary {
 
     b {
         margin-right: .75em;
+    }
+
+    td {
+        &:first-child {
+            text-align: right;
+        }
     }
 }
 
@@ -306,6 +313,20 @@ ul {
         > * {
             &:last-child {
                 margin-bottom: .5rem;
+            }
+        }
+    }
+
+    &:visited {
+        color: gray;
+
+        main {
+            > .btn {
+                color: gray;
+
+                > .btn-icon {
+                    background-color: lightgray;
+                }
             }
         }
     }

@@ -59,3 +59,7 @@ export const removeNonCoronaItemsFromFeed = items => {
         return result;
     });
 };
+
+export const getFormattedNumberString = number => {
+    return new Intl.NumberFormat().format(parseFloat(number));
+};
