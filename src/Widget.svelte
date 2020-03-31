@@ -4,7 +4,7 @@
     import {onMount} from 'svelte';
     import {config, cases, news} from './stores.js';
     import {ICON_DEFS} from './global.js';
-    import {getElapsedTime, hostNameFromUrl} from './util';
+    import {getElapsedTime, hostNameFromUrl, getFormattedNumberString} from './util';
 
     export let area = 'DEU';
     export let language = 'de';
@@ -64,7 +64,7 @@
                 <table class="numbers">
                     <tr>
                         <td>
-                            <b>{$cases.confirmed}</b>
+                            <b>{getFormattedNumberString($cases.confirmed)}</b>
                         </td>
                         <td>
                             {$config.strings.casesAll}<br>
@@ -72,7 +72,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <b>{$cases.deaths}</b>
+                            <b>{getFormattedNumberString($cases.deaths)}</b>
                         </td>
                         <td>
                             {$config.strings.casesDeaths}
@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <b class="green">{$cases.recovered}</b>
+                            <b class="green">{getFormattedNumberString($cases.recovered)}</b>
                         </td>
                         <td>
                             {$config.strings.casesRecovered}
