@@ -2,3 +2,18 @@
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+
+# API redirects
+## proxy cases endpoint directly to external API
+[[redirects]]
+  from = "/api/v3/cases/*"
+  to = "https://covidapi.info/api/v1/:splat"
+  status = 200
+  force = true
+
+## proxy all other requests to our own API
+[[redirects]]
+  from = "/api/v3/*"
+  to = "https://api.coverified.info/api/v1/:splat"
+  status = 200
+  force = true
