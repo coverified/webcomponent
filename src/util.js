@@ -8,9 +8,13 @@ export const setJsonFromUrl = (url, set, transform = data => {
         .then(data => set(transform(data)));
 };
 
+export const fixTimestampString = timestamp => {
+    return `${timestamp.replace(/ /, 'T')}.000Z`;
+};
+
 export const getElapsedTime = timestamp => {
     const now = new Date;
-    const then = new Date(timestamp);
+    const then = new Date(fixTimestampString(timestamp));
     const diff = Math.floor((now - then) / 1000);
     const hours = Math.floor(diff / 3600);
     const mins = Math.floor((diff % 3600) / 60);
@@ -32,8 +36,8 @@ export const hostNameFromUrl = url => {
 
 export const sortFeedItemsByDate = items => {
     return items.sort((a, b) => {
-        const dateA = new Date(a.pubDate);
-        const dateB = new Date(b.pubDate);
+        const dateA = new Date(fixTimestampString(a.pubDate));
+        const dateB = new Date(fixTimestampString(b.pubDate));
 
         return dateB - dateA;
     });
