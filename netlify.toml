@@ -1,19 +1,27 @@
+# Allow CORS
 [[headers]]
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
 
 # API redirects
-## proxy cases endpoint directly to external API
+## Proxy cases endpoint directly to external API
 [[redirects]]
-  from = "/api/v3/cases/*"
+  from = "/api/v1/cases/*"
   to = "https://covidapi.info/api/v1/:splat"
   status = 200
   force = true
 
-## proxy all other requests to our own API
+# Proxy config to data repo
 [[redirects]]
-  from = "/api/v3/*"
+  from = "/api/v1/config/*"
+  to = "https://data.coverified.info/v2/config/:splat"
+  status = 200
+  force = true
+
+## Proxy all other requests to our own API
+[[redirects]]
+  from = "/api/v1/*"
   to = "https://api.coverified.info/api/v1/:splat"
   status = 200
   force = true
