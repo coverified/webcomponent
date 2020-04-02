@@ -13,7 +13,7 @@
 
     onMount(async () => {
         config.load(language);
-        news.load();
+        news.load(postLimit);
     });
 </script>
 
@@ -26,9 +26,9 @@
                 <li>
                     <coverified-articles-article
                             title={item.title}
-                            url={item.link}
-                            content={item.description}
-                            timestamp={item.pubDate}
+                            url={item.url}
+                            content={item.content}
+                            timestamp={item.timestamp}
                             more={$config.strings.moreLink}
                             verified={$config.strings.verified}
                     ></coverified-articles-article>

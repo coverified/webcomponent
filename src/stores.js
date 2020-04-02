@@ -1,6 +1,6 @@
 import {writable} from 'svelte/store';
-import {ENDPOINT_FEED, ENDPOINT_CASES, ENDPOINT_CONFIG, FFEDS} from './global';
-import {setJsonFromUrl, sortFeedItemsByDate, removeNonCoronaItemsFromFeed} from './util';
+import {ENDPOINT_FEED, ENDPOINT_CASES, ENDPOINT_CONFIG} from './global';
+import {setJsonFromUrl, sortFeedItemsByDate} from './util';
 
 const createStore = loadFunc => {
     const {subscribe, set, update} = writable(null);
@@ -14,25 +14,8 @@ const createStore = loadFunc => {
 };
 
 export const news = createStore((set, key) => {
-    const promises = [];
-    let items = [];
-
-    FFEDS.forEach(feed => {
-        promises.push(fetch(`${ENDPOINT_FEED}/${feed}.json`).then(response => {
-            return response.json();
-        }));
-    });
-
-    Promise.allSettled(promises).then(results => {
-        results.forEach(result => {
-            if (result.value.status === 'ok') {
-                result.value.items = removeNonCoronaItemsFromFeed(result.value.items);
-                result.value.items = sortFeedItemsByDate(result.value.items);
-                items = [...items, result.value.items[0]];
-            }
-        });
-
-        set(sortFeedItemsByDate(items));
+    setJsonFromUrl(`${ENDPOINT_FEED}/?start=26.03.2020T18:00&end=02.04.2020T18:00&limit=${key}`, set, data => {
+        return sortFeedItemsByDate(data);
     });
 });
 

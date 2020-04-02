@@ -22,7 +22,7 @@
 
     onMount(async () => {
         config.load(language);
-        news.load();
+        news.load(postLimit);
 
         // close widget if there was a click outside of it
         document.addEventListener('click', e => {
@@ -66,9 +66,9 @@
                             <li>
                                 <coverified-widget-article
                                     title={item.title}
-                                    url={item.link}
-                                    content={item.description}
-                                    timestamp={item.pubDate}
+                                    url={item.url}
+                                    content={item.content}
+                                    timestamp={item.timestamp}
                                     more={$config.strings.moreLink}
                                     verified={$config.strings.verified}
                                 ></coverified-widget-article>

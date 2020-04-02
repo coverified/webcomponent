@@ -1,20 +1,14 @@
 export const setJsonFromUrl = (url, set, transform = data => {
     return data
 }) => {
-    fetch(url)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => set(transform(data)));
-};
-
-export const fixTimestampString = timestamp => {
-    return `${timestamp.replace(/ /, 'T')}.000Z`;
+    fetch(url).then(response => {
+        return response.json();
+    }).then(data => set(transform(data)));
 };
 
 export const getElapsedTime = timestamp => {
     const now = new Date;
-    const then = new Date(fixTimestampString(timestamp));
+    const then = new Date(timestamp);
     const diff = Math.floor((now - then) / 1000);
     const hours = Math.floor(diff / 3600);
     const mins = Math.floor((diff % 3600) / 60);
@@ -36,31 +30,10 @@ export const hostNameFromUrl = url => {
 
 export const sortFeedItemsByDate = items => {
     return items.sort((a, b) => {
-        const dateA = new Date(fixTimestampString(a.pubDate));
-        const dateB = new Date(fixTimestampString(b.pubDate));
+        const dateA = new Date(a.timestamp);
+        const dateB = new Date(b.timestamp);
 
         return dateB - dateA;
-    });
-};
-
-export const removeNonCoronaItemsFromFeed = items => {
-    return items.filter(item => {
-        const string = JSON.stringify(item).toLowerCase();
-        let result = false;
-
-        if (
-            string.includes('corona')
-            || string.includes('covid')
-            || string.includes('sars-cov')
-            || string.includes('pandemie')
-            || string.includes('pandemic')
-            || string.includes('epidemie')
-            || string.includes('epidemic')
-        ) {
-            result = true;
-        }
-
-        return result;
     });
 };
 
