@@ -1,0 +1,16 @@
+name: PR Size
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: preactjs/compressed-size-action@master
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          pattern: "{public/**/*.css,public/**/*.js}"
+          build-script: "build"
