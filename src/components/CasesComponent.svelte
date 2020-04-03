@@ -4,11 +4,12 @@
 
 <script>
     import Cases from './Cases.svelte';
+    import {ensureCustomElement} from '../util';
 
     export let area = 'DEU';
     export let language = 'de';
 
-    customElements.define('coverified-cases-component', Cases);
+    ensureCustomElement('coverified-cases-component', Cases);
 </script>
 
 <coverified-cases-component

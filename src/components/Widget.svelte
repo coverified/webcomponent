@@ -6,7 +6,7 @@
     import Cases from './Cases.svelte';
     import {config, news} from '../stores.js';
     import {ICON_DEFS} from '../global.js';
-    import {getElapsedTime, hostNameFromUrl} from '../util';
+    import {ensureCustomElement} from '../util';
 
     export let area = 'DEU';
     export let language = 'de';
@@ -17,8 +17,8 @@
         open = !open;
     }
 
-    customElements.define('coverified-widget-article', Article);
-    customElements.define('coverified-widget-cases', Cases);
+    ensureCustomElement('coverified-widget-article', Article);
+    ensureCustomElement('coverified-widget-cases', Cases);
 
     onMount(async () => {
         config.load(language);
