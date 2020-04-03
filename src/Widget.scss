@@ -2,7 +2,7 @@
     --color-primary: #3753ff;
     --color-green: #3fb63f;
     --color-verified: #3753ff;
-    --color-focus: rgba(55, 83, 255, .5);
+    --color-focus: var(--color-primary);
     --color-text: #1c1c1c;
     --color-bg: #fff;
     --color-text-on-primary: #fff;
@@ -64,7 +64,6 @@ details {
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .2));
     border-radius: .5rem;
     position: relative;
-    overflow: hidden;
 
     > section {
         max-height: 70vh;
@@ -72,9 +71,17 @@ details {
         scroll-behavior: smooth;
     }
 
+    > summary {
+        &:focus {
+            box-shadow: none !important;
+            filter: drop-shadow(0 .1rem 1rem var(--color-focus));
+        }
+    }
+
     &[open] {
         background-color: var(--color-bg);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .2);
+        overflow: hidden;
 
         &:before,
         &:after {
@@ -109,6 +116,11 @@ details {
             position: relative;
             border-bottom: 1px solid var(--color-border);
             overflow: hidden;
+
+            &:focus {
+                box-shadow: inset 0 0 0 .2rem var(--color-focus) !important;
+                filter: none;
+            }
 
             &:before {
                 content: '';
@@ -204,18 +216,26 @@ ul {
 .article {
     display: block;
     padding: var(--open-padding);
-    padding-top: calc(var(--open-padding) * 2);
-    padding-bottom: 0;
-    border-radius: .25rem;
-    margin-top: var(--open-padding);
+    border-radius: .33rem;
+    margin-top: calc(var(--open-padding) * 2);
     color: var(--color-text);
     position: relative;
-    border-top: 1px solid var(--color-border);
 
     &,
     &:focus,
     &:hover {
         text-decoration: none;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: calc(-1 * var(--open-padding));
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-border);
     }
 
     &:focus,
@@ -267,23 +287,10 @@ ul {
     main {
         > p {
             display: block;
-            max-height: 8.5em;
+            max-height: 4.6em;
             overflow: hidden;
             position: relative;
             margin-bottom: .333em;
-
-            &:after {
-                content: '';
-                display: block;
-                height: 1.5em;
-                width: 100%;
-                position: absolute;
-                top: 7em;
-                left: 0;
-                pointer-events: none;
-                z-index: 1;
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0.001), white);
-            }
         }
 
         > .btn {
