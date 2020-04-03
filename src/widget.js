@@ -1,1 +1,1 @@
-export { default as app } from './Widget.svelte';
+export { default as app } from './components/Widget.svelte';

@@ -1,0 +1,28 @@
+:host {
+    --color-green: #3fb63f;
+    line-height: 1.5;
+}
+
+small {
+    color: #767676;
+}
+
+.green {
+    color: var(--color-green);
+}
+
+.numbers {
+    padding: calc(var(--open-padding) / 2);
+    position: relative;
+    margin: 0;
+
+    b {
+        margin-right: .75em;
+    }
+
+    td {
+        &:first-child {
+            text-align: right;
+        }
+    }
+}

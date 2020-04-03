@@ -52,14 +52,6 @@ svg {
     display: inline-block;
 }
 
-.green {
-    color: var(--color-green);
-}
-
-small {
-    color: #767676;
-}
-
 details {
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .2));
     border-radius: .5rem;
@@ -191,150 +183,24 @@ summary {
     }
 }
 
-.numbers {
-    padding: calc(var(--open-padding) / 2);
-    position: relative;
-    margin: 0;
-
-    b {
-        margin-right: .75em;
-    }
-
-    td {
-        &:first-child {
-            text-align: right;
-        }
-    }
-}
-
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-}
 
-.article {
-    display: block;
-    padding: var(--open-padding);
-    border-radius: .33rem;
-    margin-top: calc(var(--open-padding) * 2);
-    color: var(--color-text);
-    position: relative;
+    > li {
+        position: relative;
+        margin-top: calc(var(--open-padding) * 2);
 
-    &,
-    &:focus,
-    &:hover {
-        text-decoration: none;
-    }
-
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: calc(-1 * var(--open-padding));
-        width: 100%;
-        height: 1px;
-        background-color: var(--color-border);
-    }
-
-    &:focus,
-    &:hover {
-        main {
-            > .btn {
-                > .btn-icon {
-                    transform: translateX(.1875rem);
-                }
-            }
-        }
-    }
-
-    header {
-        margin-bottom: .5rem;
-    }
-
-    h2 {
-        margin-top: 0;
-        font-size: 1.25rem;
-        padding-right: 1em;
-        font-weight: 700;
-        margin-bottom: 0;
-    }
-
-    small {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding-top: .25rem;
-    }
-
-    .icon {
-        width: 1.2em;
-        height: 1.2em;
-        margin-bottom: -.225em;
-    }
-
-    .source {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        margin-right: 1.5em;
-    }
-
-    .timestamp {
-        white-space: nowrap;
-    }
-
-    main {
-        > p {
+        &:before {
+            content: '';
             display: block;
-            max-height: 4.6em;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: .333em;
-        }
-
-        > .btn {
-            font-size: .875rem;
-
-            > .btn-icon {
-                display: inline-block;
-                justify-content: center;
-                align-items: center;
-                width: 1.4em;
-                height: 1.4em;
-                color: var(--color-text-on-primary);
-                border-radius: 1.75em;
-                background-color: var(--color-primary);
-                text-align: center;
-                margin-right: .33em;
-                transition: var(--transition);
-
-                > .icon {
-                    font-size: .675rem;
-                    position: relative;
-                    top: -.125em;
-                }
-            }
-        }
-
-        > * {
-            &:last-child {
-                margin-bottom: .5rem;
-            }
-        }
-    }
-
-    &:visited {
-        color: gray;
-
-        main {
-            > .btn {
-                color: gray;
-
-                > .btn-icon {
-                    background-color: lightgray;
-                }
-            }
+            position: absolute;
+            left: 0;
+            top: calc(-1 * var(--open-padding));
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-border);
         }
     }
 }
@@ -342,48 +208,6 @@ ul {
 .icon {
     width: 1em;
     height: 1em;
-}
-
-.verified {
-    position: relative;
-    z-index: 1;
-
-    .icon-logo {
-        --color-icon-bg: var(--color-verified);
-
-        width: 1.33em;
-        height: 1.33em;
-        margin-bottom: -.25em;
-        margin-right: .125em;
-        margin-left: -.125em;
-    }
-
-    &__label {
-        position: absolute;
-        background-color: var(--color-verified);
-        color: var(--color-text-on-primary);
-        white-space: nowrap;
-        font-size: .5em;
-        font-weight: 500;
-        display: inline-block;
-        padding: .1em .75em .1em 1.5em;
-        border-radius: 1em;
-        left: 1em;
-        top: .3em;
-        z-index: -1;
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: var(--transition);
-    }
-
-    &:hover,
-    &:focus {
-        .verified {
-            &__label {
-                transform: scaleX(1);
-            }
-        }
-    }
 }
 
 @media (min-width: 512px) {

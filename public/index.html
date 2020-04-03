@@ -18,38 +18,28 @@
     <link rel='stylesheet' href='/global.css'>
 
     <style>
-        html {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-        }
-
-        .netlify-attribution {
-            display: block;
-            margin-top: auto;
-            margin-left: 1em;
-            margin-bottom: 1em;
-        }
-
         /*coverified-widget {*/
         /*    --color-primary: #bf1e3a;*/
         /*}*/
+
+        coverified-cases {
+            max-width: 356px;
+            display: block;
+            border-radius: .33rem;
+            border: 2px solid #ececec;
+            padding: .6875rem;
+            margin: .6875rem;
+        }
     </style>
 </head>
 <body>
+<h1>CoVerified Web Components</h1>
 <!--<script>window.__override_coverified_data_provider = 'broken'</script>-->
 <br>
 <br>
 <br>
-<!--<coverified-articles></coverified-articles>-->
+<coverified-cases></coverified-cases>
+<coverified-articles></coverified-articles>
 <coverified-widget></coverified-widget>
 <!--<br>-->
 <!--<br>-->
@@ -61,8 +51,9 @@
 <!--<br>-->
 <!--<coverified-widget debug="true"></coverified-widget>-->
 <!--<script async src='/build/embed.js'></script>-->
+<script async src='/build/articles.js'></script>
+<script async src='/build/cases.js'></script>
 <script async src='/build/widget.js'></script>
-<!--<script async src='/build/articles.js'></script>-->
 
 <a href="https://www.netlify.com" class="netlify-attribution">
     <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify"/>

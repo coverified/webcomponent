@@ -7,7 +7,7 @@ import autoPreprocess from 'svelte-preprocess';
 
 const production = !process.env.ROLLUP_WATCH;
 
-export default ['widget', 'articles', 'embed'].map((name, index) => ({
+export default ['widget', 'cases', 'articles', 'embed'].map((name, index) => ({
 	input: `src/${name}.js`,
 	output: {
 		sourcemap: true,

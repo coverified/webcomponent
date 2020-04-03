@@ -1,1 +1,1 @@
-export { default as app } from './Articles.svelte';
+export { default as app } from './components/Articles.svelte';
