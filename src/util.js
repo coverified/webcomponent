@@ -67,3 +67,9 @@ export const removeNonCoronaItemsFromFeed = items => {
 export const getFormattedNumberString = number => {
     return new Intl.NumberFormat().format(parseFloat(number));
 };
+
+export const ensureCustomElement = (name, element) => {
+    if(customElements.get(name) === undefined) {
+        customElements.define(name, element);
+    }
+};

@@ -4,11 +4,12 @@
     import {onMount} from 'svelte';
     import Article from './Article.svelte';
     import {config, news} from '../stores.js';
+    import {ensureCustomElement} from '../util';
 
     export let language = 'de';
     export let postLimit = 3;
 
-    customElements.define('coverified-articles-article', Article);
+    ensureCustomElement('coverified-articles-article', Article);
 
     onMount(async () => {
         config.load(language);
