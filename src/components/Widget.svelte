@@ -39,6 +39,8 @@
 
 <style src="Widget.scss"></style>
 
+{@html `<!--googleoff: all-->`}
+
 {#if $config}
     <details open={open}>
         <summary on:click|preventDefault={toggleOpen}>
@@ -80,3 +82,5 @@
 {/if}
 
 {@html ICON_DEFS}
+
+{@html `<!--googleon: all-->`}
