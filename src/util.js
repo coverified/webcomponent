@@ -28,21 +28,12 @@ export const hostNameFromUrl = url => {
     return url.hostname.replace(/www\./, '');
 };
 
-export const sortFeedItemsByDate = items => {
-    return items.sort((a, b) => {
-        const dateA = new Date(a.timestamp);
-        const dateB = new Date(b.timestamp);
-
-        return dateB - dateA;
-    });
-};
-
 export const getFormattedNumberString = number => {
     return new Intl.NumberFormat().format(parseFloat(number));
 };
 
 export const ensureCustomElement = (name, element) => {
-    if(customElements.get(name) === undefined) {
+    if (customElements.get(name) === undefined) {
         customElements.define(name, element);
     }
 };
