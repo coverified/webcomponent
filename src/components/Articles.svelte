@@ -7,7 +7,7 @@
     import {ensureCustomElement} from '../util';
 
     export let language = 'de';
-    export let postLimit = 3;
+    export let postLimit = 6;
 
     ensureCustomElement('coverified-articles-article', Article);
 

@@ -14,7 +14,7 @@ const createStore = loadFunc => {
 };
 
 export const news = createStore((set, key) => {
-    setJsonFromUrl(`${ENDPOINT_FEED}/?start=26.03.2020T18:00&end=02.04.2020T18:00&limit=${key}`, set, data => {
+    setJsonFromUrl(`${ENDPOINT_FEED}/latest/${key}`, set, data => {
         return sortFeedItemsByDate(data);
     });
 });
