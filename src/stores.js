@@ -1,6 +1,6 @@
 import {writable} from 'svelte/store';
 import {ENDPOINT_FEED, ENDPOINT_CASES, ENDPOINT_CONFIG} from './global';
-import {setJsonFromUrl, sortFeedItemsByDate} from './util';
+import {setJsonFromUrl} from './util';
 
 const createStore = loadFunc => {
     const {subscribe, set, update} = writable(null);
@@ -14,9 +14,7 @@ const createStore = loadFunc => {
 };
 
 export const news = createStore((set, key) => {
-    setJsonFromUrl(`${ENDPOINT_FEED}/latest/${key}`, set, data => {
-        return sortFeedItemsByDate(data);
-    });
+    setJsonFromUrl(`${ENDPOINT_FEED}/latest/${key}`, set);
 });
 
 export const config = createStore((set, key) => {

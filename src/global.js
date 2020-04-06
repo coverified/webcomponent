@@ -1,4 +1,4 @@
-export const API_BASE = window.__override_coverified_data_provider || '/api/v1';
+export const API_BASE = window.__override_coverified_data_provider || 'https://webcomponent.coverified.info/api/v1';
 export const ENDPOINT_CONFIG = `${API_BASE}/config`;
 export const ENDPOINT_CASES = `${API_BASE}/cases/country`;
 export const ENDPOINT_FEED = `${API_BASE}/feed`;
