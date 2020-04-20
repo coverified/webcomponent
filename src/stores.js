@@ -14,7 +14,7 @@ const createStore = loadFunc => {
 };
 
 export const news = createStore((set, key) => {
-    setJsonFromUrl(`${ENDPOINT_FEED}/latest/${key}`, set);
+    setJsonFromUrl(`${ENDPOINT_FEED}/latest?limit=${key}&offset=0`, set);
 });
 
 export const config = createStore((set, key) => {
