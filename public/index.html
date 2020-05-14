@@ -34,7 +34,7 @@
 </head>
 <body>
 <h1>CoVerified Web Components</h1>
-<script>window.__override_coverified_data_provider = '/api/v1'</script>
+<script>window.__override_coverified_data_provider = window.location.host.contains('localhost') ? undefined : '/api/v1';</script>
 <br>
 <br>
 <br>
