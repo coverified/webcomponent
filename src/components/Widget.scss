@@ -154,6 +154,12 @@ summary {
     border-radius: 4rem;
     padding: .25rem;
     cursor: pointer;
+    transform: scale(0);
+    transition: transform .66s cubic-bezier(.51,2,.66,.71);
+
+    &.loaded {
+        transform: scale(1);
+    }
 
     &::-webkit-details-marker {
         display: none;

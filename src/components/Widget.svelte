@@ -12,6 +12,7 @@
     export let language = 'de';
     export let postLimit = 3;
     export let open = false;
+    let loaded = false;
 
     function toggleOpen() {
         open = !open;
@@ -34,6 +35,8 @@
                 }
             });
         });
+
+        setTimeout(() => loaded = true, 42);
     });
 </script>
 
@@ -41,45 +44,45 @@
 
 {@html `<!--googleoff: all-->`}
 
-{#if $config}
-    <details open={open}>
-        <summary on:click|preventDefault={toggleOpen}>
-            <svg class="icon icon-logo">
-                <use xlink:href="#icon-logo"></use>
-            </svg>
-            <span>
-                CoVerified
-            </span>
-            <svg class="icon icon-close">
-                <use xlink:href="#icon-close"></use>
-            </svg>
-        </summary>
-        <section>
-            <coverified-widget-cases
+
+<details open={open}>
+    <summary on:click|preventDefault={toggleOpen} class={loaded ? `loaded` : ``}>
+        <svg class="icon icon-logo">
+            <use xlink:href="#icon-logo"></use>
+        </svg>
+        <span>
+            CoVerified
+        </span>
+        <svg class="icon icon-close">
+            <use xlink:href="#icon-close"></use>
+        </svg>
+    </summary>
+    <section>
+        <coverified-widget-cases
                 area={area}
                 language={language}
-            ></coverified-widget-cases>
-            {#if $news}
-                <ul>
-                    {#each $news as item, i}
-                        {#if i < postLimit}
-                            <li>
-                                <coverified-widget-article
+        ></coverified-widget-cases>
+        {#if $news && $config}
+            <ul>
+                {#each $news as item, i}
+                    {#if i < postLimit}
+                        <li>
+                            <coverified-widget-article
                                     title={item.title}
                                     url={item.url}
                                     content={item.content}
                                     timestamp={item.timestamp}
                                     more={$config.strings.moreLink}
                                     verified={$config.strings.verified}
-                                ></coverified-widget-article>
-                            </li>
-                        {/if}
-                    {/each}
-                </ul>
-            {/if}
-        </section>
-    </details>
-{/if}
+                            ></coverified-widget-article>
+                        </li>
+                    {/if}
+                {/each}
+            </ul>
+        {/if}
+
+    </section>
+</details>
 
 {@html ICON_DEFS}
 
