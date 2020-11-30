@@ -1,3 +1,9 @@
+# Allow CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
 # API redirects
 ## Proxy cases endpoint directly to external API
 [[redirects]]
@@ -19,9 +25,3 @@
   to = "https://api.coverified.info/api/v1/:splat"
   status = 200
   force = true
-
-# Allow CORS
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
